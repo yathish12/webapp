@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Registration form
+  name: registration_form
 spec:
   selector:
     matchLabels:
@@ -10,10 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: Registration_app
+        app: registration_app
     spec:
       containers:
-      - name: Registration
+      - name: registration
         image: yathish123/registration
         ports:
         - containerPort: 80
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Registration-appservice
+  name: registration-appservice
 spec:
   type: NodePort
   selector:
-    app: Registration_app
+    app: registration_app
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 80
